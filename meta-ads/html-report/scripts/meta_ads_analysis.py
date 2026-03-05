@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) Mathias Chu — https://mathiaschu.com
+# Copyright (c) mathiaschu — https://mathiaschu.com
 """
 Meta Ads Analysis Script
 Generates JSON with all analysis results from Meta Ads CSV or MCP JSON.

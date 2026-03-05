@@ -75,7 +75,7 @@ También podés definir patrones regex custom con named groups.
 
 ## Autor
 
-Creado por [Mathias Chu](https://mathiaschu.com)
+Creado por [mathiaschu](https://mathiaschu.com)
 
 ## Licencia
 
