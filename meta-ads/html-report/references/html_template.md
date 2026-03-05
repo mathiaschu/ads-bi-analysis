@@ -281,6 +281,19 @@ Clases CSS: `.semaphore-green`, `.semaphore-yellow`, `.semaphore-red`
             font-variant-numeric: tabular-nums;
         }
 
+        .watermark {
+            position: fixed;
+            bottom: 4px;
+            right: 12px;
+            font-size: 7px;
+            color: var(--text-muted);
+            opacity: 0.15;
+            letter-spacing: 0.3px;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .watermark a { color: inherit; text-decoration: none; }
+
         /* ═══════════════════════════════════════
            TITLE SLIDE (Slide 1)
            ═══════════════════════════════════════ */
@@ -1140,6 +1153,7 @@ Clases CSS: `.semaphore-green`, `.semaphore-yellow`, `.semaphore-red`
             goTo(0);
         })();
     </script>
+    <div class="watermark"><a href="https://mathiaschu.com" target="_blank">skill by mathiaschu</a></div>
 </body>
 </html>
 ```

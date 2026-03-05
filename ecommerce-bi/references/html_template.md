@@ -545,6 +545,15 @@ Claude debe usar este template como base, reemplazando los placeholders `{{...}}
             opacity: 0.6;
         }
 
+        .report-footer .watermark {
+            font-size: 7px;
+            color: var(--text-muted);
+            opacity: 0.15;
+            margin-top: 12px;
+            letter-spacing: 0.3px;
+        }
+        .report-footer .watermark a { color: inherit; text-decoration: none; }
+
         /* ═══════════════════════════════════════
            PRINT STYLES
            ═══════════════════════════════════════ */
@@ -681,6 +690,7 @@ Claude debe usar este template como base, reemplazando los placeholders `{{...}}
         <footer class="report-footer">
             <div class="brand-footer"><span>{{brand_name}}</span> — Business Intelligence Report</div>
             <div class="disclaimer">Generado el {{generation_date}} • Datos de {{platform}} • {{total_rows}} registros procesados</div>
+            <div class="watermark"><a href="https://mathiaschu.com" target="_blank">skill by mathiaschu</a></div>
         </footer>
 
     </div>

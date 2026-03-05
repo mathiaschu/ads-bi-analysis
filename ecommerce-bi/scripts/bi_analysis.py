@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 Mathias Chu — https://mathiaschu.com
 """
 eCommerce BI Analysis Script
 Generates JSON with all analysis results from a sales CSV.

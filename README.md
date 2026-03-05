@@ -73,6 +73,10 @@ La skill de HTML report de Meta Ads incluye un parser de nomenclaturas (`referen
 
 También podés definir patrones regex custom con named groups.
 
+## Autor
+
+Creado por [Mathias Chu](https://mathiaschu.com)
+
 ## Licencia
 
 MIT
