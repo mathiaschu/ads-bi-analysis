@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Copyright (c) 2026 Mathias Chu — https://mathiaschu.com
+# Copyright (c) Mathias Chu — https://mathiaschu.com
 """
 Google Ads Analysis Script
 Processes Google Ads CSV exports or MCP JSON data and generates structured JSON results.
