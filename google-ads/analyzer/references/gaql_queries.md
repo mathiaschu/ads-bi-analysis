@@ -2,6 +2,8 @@
 
 Ready-to-use queries for each step of the analysis workflow. Replace date ranges as needed.
 
+> **Note:** This reference only applies when using the Google Ads API via MCP tools. When analyzing CSV exports, skip this file and use `csv_mapping.md` instead for column mapping and data parsing.
+
 ## Discovery
 
 ### Account info
