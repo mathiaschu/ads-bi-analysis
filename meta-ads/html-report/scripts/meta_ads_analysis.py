@@ -2,7 +2,7 @@
 """
 Meta Ads Analysis Script
 Generates JSON with all analysis results from Meta Ads CSV or MCP JSON.
-Usage: python3 meta_ads_analysis.py --input PATH --mode lite|full --nomenclatura clica|euphoria|auto --output PATH
+Usage: python3 meta_ads_analysis.py --input PATH --mode lite|full --nomenclatura standard|alternative|auto --output PATH
 """
 
 import argparse
@@ -121,19 +121,19 @@ def detect_nomenclatura(names, format_hint='auto'):
 
     pipe_count = sum(1 for n in names if ' | ' in str(n))
     if pipe_count > len(names) * 0.3:
-        return 'clica'
+        return 'standard'
 
     underscore_segments = sum(1 for n in names if len(str(n).split('_')) >= 3)
     etapa_in_underscore = sum(1 for n in names
                               if any(e in str(n).upper().split('_')[0:2]
                                      for e in ['TOF', 'MOF', 'BOF', 'TOFU', 'MOFU', 'BOFU']))
     if underscore_segments > len(names) * 0.3 and etapa_in_underscore > len(names) * 0.2:
-        return 'euphoria'
+        return 'alternative'
 
     return 'unknown'
 
 
-def parse_nomenclatura_clica(name):
+def parse_nomenclatura_standard(name):
     """Parse standard format: Producto | Formato | Etapa | Creador | Variacion"""
     parts = [p.strip() for p in str(name).split('|')]
     result = {'producto': None, 'formato': None, 'etapa': None, 'creador': None, 'variacion': None, 'raw': str(name)}
@@ -152,7 +152,7 @@ def parse_nomenclatura_clica(name):
     return result
 
 
-def parse_nomenclatura_euphoria(name):
+def parse_nomenclatura_alternative(name):
     """Parse alternative format: Etapa_Producto_Formato_Variacion"""
     parts = str(name).split('_')
     result = {'producto': None, 'formato': None, 'etapa': None, 'creador': None, 'variacion': None, 'raw': str(name)}
@@ -171,10 +171,10 @@ def parse_nomenclatura_euphoria(name):
 
 def parse_nomenclatura(name, format_type):
     """Parse a name according to detected format."""
-    if format_type == 'clica':
-        return parse_nomenclatura_clica(name)
-    elif format_type == 'euphoria':
-        return parse_nomenclatura_euphoria(name)
+    if format_type == 'standard':
+        return parse_nomenclatura_standard(name)
+    elif format_type == 'alternative':
+        return parse_nomenclatura_alternative(name)
     else:
         return {'producto': None, 'formato': None, 'etapa': None, 'creador': None, 'variacion': None, 'raw': str(name)}
 
@@ -1986,7 +1986,7 @@ def main():
     parser = argparse.ArgumentParser(description='Meta Ads Analysis Script')
     parser.add_argument('--input', required=True, help='Path to CSV or JSON input file')
     parser.add_argument('--mode', choices=['lite', 'full'], default='lite', help='Analysis mode')
-    parser.add_argument('--nomenclatura', choices=['clica', 'euphoria', 'auto'], default='auto',
+    parser.add_argument('--nomenclatura', choices=['standard', 'alternative', 'auto'], default='auto',
                         help='Nomenclatura format for parsing ad names')
     parser.add_argument('--output', required=True, help='Path for output JSON')
     args = parser.parse_args()
