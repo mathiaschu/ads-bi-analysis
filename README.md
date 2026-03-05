@@ -1,78 +1,78 @@
-# Ads & BI Analysis Skills for Claude Code
+# Ads & BI Analysis — Skills para Claude Code
 
-A collection of Claude Code skills for analyzing digital advertising campaigns and eCommerce data. Each skill provides expert-level analysis with HTML report generation.
+Colección de skills de Claude Code para analizar campañas de publicidad digital y datos de eCommerce. Cada skill provee análisis a nivel experto con generación de informes HTML.
 
 ## Skills
 
 ### Meta Ads
 
-- **`meta-ads/analyzer/`** — Conceptual analysis and diagnosis for Meta Ads campaigns. Covers the Breakdown Effect, Learning Phase, bid strategies, auction mechanics, ad relevance diagnostics, and more. 9 reference documents.
+- **`meta-ads/analyzer/`** — Análisis conceptual y diagnóstico de campañas Meta Ads. Cubre Breakdown Effect, Learning Phase, estrategias de puja, mecánica de subastas, diagnóstico de relevancia y más. 9 documentos de referencia.
 
-- **`meta-ads/html-report/`** — Generates full HTML slide-based reports from Meta Ads Manager CSV exports or API data. Two modes: Lite (18 analyses) and Full (32). Includes nomenclature parsing for creative analysis, benchmark semaphores (AR/LATAM), and funnel visualization.
+- **`meta-ads/html-report/`** — Genera informes HTML en formato slides a partir de CSVs de Meta Ads Manager o datos de API. Dos modos: Lite (18 análisis) y Full (32). Incluye parseo de nomenclaturas para análisis creativo, semáforos de benchmarks (AR/LATAM) y visualización de funnel.
 
 ### Google Ads
 
-- **`google-ads/analyzer/`** — Expert analysis for Google Ads via GAQL queries. Covers Quality Score, Impression Share, Smart Bidding, Performance Max, search terms, negative keywords, and account structure. 12 reference documents.
+- **`google-ads/analyzer/`** — Análisis experto de Google Ads vía consultas GAQL. Cubre Quality Score, Impression Share, Smart Bidding, Performance Max, search terms, negative keywords y estructura de cuenta. 12 documentos de referencia.
 
-- **`google-ads/html-report/`** — Generates full HTML slide-based reports from Google Ads CSV exports or MCP API data. Two modes: Lite (18 analyses) and Full (30). Covers Search, Shopping, PMax, and mixed accounts.
+- **`google-ads/html-report/`** — Genera informes HTML en formato slides a partir de CSVs de Google Ads o datos de MCP API. Dos modos: Lite (18 análisis) y Full (30). Cubre Search, Shopping, PMax y cuentas mixtas.
 
 ### eCommerce BI
 
-- **`ecommerce-bi/`** — Business Intelligence reports from eCommerce sales CSVs. Analyzes Market Basket, RFM segmentation, cohorts, CLV, cross-sell, seasonality, and more. Two modes: Lite (20 analyses) and Full (38).
+- **`ecommerce-bi/`** — Informes de Business Intelligence a partir de CSVs de ventas eCommerce. Analiza Market Basket, segmentación RFM, cohortes, CLV, cross-sell, estacionalidad y más. Dos modos: Lite (20 análisis) y Full (38).
 
-## Requirements
+## Requisitos
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 - Python 3.9+
-- `pandas` and `numpy` (`pip3 install pandas numpy`)
+- `pandas` y `numpy` (`pip3 install pandas numpy`)
 
-## Installation
+## Instalación
 
-Copy the skill folders into your Claude Code skills directory:
+Copiar las carpetas de skills al directorio de skills de Claude Code:
 
 ```bash
-# Clone the repo
+# Clonar el repo
 git clone https://github.com/mathiaschu/ads-bi-analysis.git
 
-# Copy skills to your Claude Code config
+# Copiar skills a la config de Claude Code
 cp -r ads-bi-analysis/meta-ads/ ~/.claude/skills/
 cp -r ads-bi-analysis/google-ads/ ~/.claude/skills/
 cp -r ads-bi-analysis/ecommerce-bi/ ~/.claude/skills/
 ```
 
-Or selectively copy only the skills you need.
+O copiar selectivamente solo las skills que necesites.
 
-## Usage
+## Uso
 
-Each skill is triggered by keywords in your Claude Code conversation:
+Cada skill se activa por keywords en la conversación de Claude Code:
 
-| Skill | Trigger examples |
-|-------|-----------------|
-| Meta Ads Analyzer | "analyze meta ads", "campaign diagnosis", "CPA analysis" |
+| Skill | Ejemplos de trigger |
+|-------|---------------------|
+| Meta Ads Analyzer | "analyze meta ads", "diagnóstico de campaña", "análisis CPA" |
 | Meta Ads HTML Report | "meta ads report", "informe meta ads html" |
 | Google Ads Analyzer | "analyze google ads", "Quality Score", "Impression Share" |
 | Google Ads HTML Report | "google ads report", "informe google ads html" |
 | eCommerce BI | "business intelligence", "RFM", "market basket", "CLV" |
 
-### HTML Reports
+### Informes HTML
 
-The HTML report skills generate slide-based presentations with:
-- Keyboard navigation (arrow keys + number keys)
-- Dark mode with print-friendly light mode
-- Benchmark semaphores (green/amber/red)
-- Actionable insights per analysis
+Las skills de reportes HTML generan presentaciones en slides con:
+- Navegación por teclado (flechas + números)
+- Dark mode con modo claro para impresión
+- Semáforos de benchmarks (verde/amarillo/rojo)
+- Insights accionables por análisis
 
-The template uses `{{brand_name}}` placeholders — customize the branding in each `references/html_template.md` file.
+El template usa placeholders `{{brand_name}}` — personalizá el branding en el archivo `references/html_template.md` de cada skill.
 
-### Customizing Nomenclature (Meta Ads)
+### Nomenclaturas personalizables (Meta Ads)
 
-The Meta Ads HTML report skill includes a nomenclature parser (`references/nomenclatura_parser.md`) that extracts structured data from campaign/ad names. Two built-in formats:
+La skill de HTML report de Meta Ads incluye un parser de nomenclaturas (`references/nomenclatura_parser.md`) que extrae datos estructurados de los nombres de campañas/ads. Dos formatos built-in:
 
-- **Standard**: `Product | Format | Stage | Creator | Variation`
-- **Alternative**: `Stage_Product_Format_Variation`
+- **Standard**: `Producto | Formato | Etapa | Creador | Variación`
+- **Alternative**: `Etapa_Producto_Formato_Variación`
 
-You can also provide custom regex patterns with named groups.
+También podés definir patrones regex custom con named groups.
 
-## License
+## Licencia
 
 MIT
